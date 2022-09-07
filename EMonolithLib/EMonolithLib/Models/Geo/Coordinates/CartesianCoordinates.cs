@@ -14,16 +14,16 @@ namespace EMonolithLib.Models.Geo.Coordinates
         /// <summary>
         /// Planar coordinate X.
         /// </summary>
-        public double X { get; set; }
+        public double X;
 
         /// <summary>
         /// Planar coordinate Y, usually Altitude.
         /// </summary>
-        public double Y { get; set; }
+        public double Y;
 
         /// <summary>
         /// Planar coordinate Z.
         /// </summary>
-        public double Z { get; set; }
+        public double Z;
     }
 }

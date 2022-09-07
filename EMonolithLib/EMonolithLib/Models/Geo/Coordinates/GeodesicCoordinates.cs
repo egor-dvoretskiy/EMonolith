@@ -14,17 +14,17 @@ namespace EMonolithLib.Models.Geo.Coordinates
         /// <summary>
         /// Latitude.
         /// </summary>
-        public double Latitude { get; set; }
+        public double Latitude;
 
         /// <summary>
         /// Longitude.
         /// </summary>
-        public double Longitude { get; set; }
+        public double Longitude;
 
         /// <summary>
         /// Altitude.
         /// </summary>
-        public double Altitude { get; set; }
+        public double Altitude;
 
     }
 }

@@ -14,16 +14,16 @@ namespace EMonolithLib.Models.Geo.Coordinates
         /// <summary>
         /// Radial distance to point, measures in meters.
         /// </summary>
-        public double RadialDistance { get; set; }
+        public double RadialDistance;
 
         /// <summary>
         /// Zenith to point, measures in degrees.
         /// </summary>
-        public double Zenith { get; set; }
+        public double Zenith;
 
         /// <summary>
         /// Azimuth to point, measures in degrees.
         /// </summary>
-        public double Azimuth { get; set; }
+        public double Azimuth;
     }
 }

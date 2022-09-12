@@ -25,5 +25,18 @@ namespace EMonolithLib.Extensions.Timing
 
             return result;
         }
+
+        public static void EvaluateTime(this object context, Action function, out double EvaluatedTimeMS)
+        {
+            _ = context;
+
+            stopwatch.Restart();
+
+            function();
+
+            stopwatch.Stop();
+
+            EvaluatedTimeMS = stopwatch.Elapsed.TotalMilliseconds;
+        }
     }
 }

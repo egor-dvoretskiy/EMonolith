@@ -15,21 +15,21 @@ namespace EMonolithLib.Models.Geo
         /// <summary>
         /// Geodesic CS, WGS84.
         /// </summary>
-        public GeodesicCoordinates Geodesic { get; set; } = new GeodesicCoordinates();
+        public GeodesicCoordinates Geodesic { get; set; }
 
         /// <summary>
         /// Geocentric CS.
         /// </summary>
-        public CartesianCoordinates Geocentric { get; set; } = new CartesianCoordinates();
+        public CartesianCoordinates Geocentric { get; set; }
 
         /// <summary>
         /// Local terestrial CS.
         /// </summary>
-        public CartesianCoordinates LocalTerestrial { get; set; } = new CartesianCoordinates();
+        public CartesianCoordinates LocalTerestrial { get; set; }
 
         /// <summary>
         /// Spherical CS.
         /// </summary>
-        public SphericalCoordinates Spherical { get; set; } = new SphericalCoordinates();
+        public SphericalCoordinates Spherical { get; set; }
     }
 }

@@ -8,45 +8,55 @@ using System.Threading.Tasks;
 
 namespace EMonolithLib.Maths.Source
 {
-    public class AzimuthCalculator : IAzimuthCalculator
+    public class AzimuthCalculator : IGeoMetricsCalculator<int>
     {
-        public int CalculateAzimuth(GeodesicCoordinates referencePoint, GeodesicCoordinates targetPoint)
+        public int Calculate(GeodesicCoordinates point1, GeodesicCoordinates point2)
         {
             return CalculateAzimuthSimple(
-                referencePoint.Latitude, 
-                referencePoint.Longitude, 
-                targetPoint.Latitude, 
-                targetPoint.Longitude
+                point1.Latitude,
+                point1.Longitude,
+                point2.Latitude,
+                point2.Longitude
             );
         }
 
-        public int CalculateAzimuth(GeodesicCoordinates2D referencePoint, GeodesicCoordinates2D targetPoint)
+        public int Calculate(GeodesicCoordinates2D point1, GeodesicCoordinates2D point2)
         {
             return CalculateAzimuthSimple(
-                referencePoint.Latitude,
-                referencePoint.Longitude,
-                targetPoint.Latitude,
-                targetPoint.Longitude
+                point1.Latitude,
+                point1.Longitude,
+                point2.Latitude,
+                point2.Longitude
             );
         }
 
-        public int CalculateAzimuth(GeodesicCoordinates referencePoint, GeodesicCoordinates2D targetPoint)
+        public int Calculate(GeodesicCoordinates point1, GeodesicCoordinates2D point2)
         {
             return CalculateAzimuthSimple(
-                referencePoint.Latitude,
-                referencePoint.Longitude,
-                targetPoint.Latitude,
-                targetPoint.Longitude
+                point1.Latitude,
+                point1.Longitude,
+                point2.Latitude,
+                point2.Longitude
             );
         }
 
-        public int CalculateAzimuth(GeodesicCoordinates2D referencePoint, GeodesicCoordinates targetPoint)
+        public int Calculate(GeodesicCoordinates2D point1, GeodesicCoordinates point2)
         {
             return CalculateAzimuthSimple(
-                referencePoint.Latitude,
-                referencePoint.Longitude,
-                targetPoint.Latitude,
-                targetPoint.Longitude
+                point1.Latitude,
+                point1.Longitude,
+                point2.Latitude,
+                point2.Longitude
+            );
+        }
+
+        public int Calculate(double latitude1, double longitude1, double latitude2, double longitude2)
+        {
+            return CalculateAzimuthSimple(
+                latitude1,
+                longitude1,
+                latitude2,
+                longitude2
             );
         }
 

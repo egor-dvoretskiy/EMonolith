@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace EMonolithLib.Maths.Source
 {
 
-    public class GeoDistanceCalculator : IDistanceCalculator
+    public class GeoDistanceCalculator : IGeoMetricsCalculator<double>
     {
         public double Calculate(GeodesicCoordinates2D point1, GeodesicCoordinates point2)
         {
@@ -25,13 +25,13 @@ namespace EMonolithLib.Maths.Source
                 return 0;
             else
                 return
-                    RadiansToDegrees(
+                    DegreeConverter.RadiansToDegrees(
                         Math.Acos(
-                            Math.Sin(DegreesToRadians(latitude1)) *
-                            Math.Sin(DegreesToRadians(latitude2)) +
-                            Math.Cos(DegreesToRadians(latitude1)) *
-                            Math.Cos(DegreesToRadians(latitude2)) *
-                            Math.Cos(DegreesToRadians(longitude1 - longitude2))
+                            Math.Sin(DegreeConverter.DegreesToRadians(latitude1)) *
+                            Math.Sin(DegreeConverter.DegreesToRadians(latitude2)) +
+                            Math.Cos(DegreeConverter.DegreesToRadians(latitude1)) *
+                            Math.Cos(DegreeConverter.DegreesToRadians(latitude2)) *
+                            Math.Cos(DegreeConverter.DegreesToRadians(longitude1 - longitude2))
                         )
                     ) * 60 * 1.1515 * 1.609344;// * 1000;
         }
@@ -49,16 +49,6 @@ namespace EMonolithLib.Maths.Source
         public double Calculate(GeodesicCoordinates point1, GeodesicCoordinates2D point2)
         {
             return Calculate(point1.Latitude, point1.Longitude, point2.Latitude, point2.Longitude);
-        }
-
-        public double DegreesToRadians(double deg)
-        {
-            return (deg * Math.PI / 180.0);
-        }
-
-        public double RadiansToDegrees(double rad)
-        {
-            return (rad / Math.PI * 180.0);
         }
     }
 }

@@ -26,5 +26,9 @@ namespace EMonolithLib.Models.Geo.Coordinates
         /// </summary>
         public double Altitude { get; set; }
 
+        public sealed override string ToString()
+        {
+            return string.Format("{0}, {1}, {2}", Latitude, Longitude, Altitude);
+        }
     }
 }

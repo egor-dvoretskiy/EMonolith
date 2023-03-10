@@ -25,5 +25,10 @@ namespace EMonolithLib.Models.Geo.Coordinates
         /// Azimuth to point, measures in degrees.
         /// </summary>
         public double Azimuth { get; set; }
+
+        public sealed override string ToString()
+        {
+            return string.Format("{0}, {1}, {2}", RadialDistance, Zenith, Azimuth);
+        }
     }
 }

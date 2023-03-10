@@ -25,5 +25,10 @@ namespace EMonolithLib.Models.Geo.Coordinates
         /// Planar coordinate Z.
         /// </summary>
         public double Z { get; set; }
+
+        public sealed override string ToString()
+        {
+            return string.Format("{0}, {1}, {2}", X, Y, Z);
+        }
     }
 }

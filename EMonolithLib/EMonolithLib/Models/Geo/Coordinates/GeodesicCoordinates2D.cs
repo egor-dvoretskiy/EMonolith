@@ -11,5 +11,10 @@ namespace EMonolithLib.Models.Geo.Coordinates
         public double Latitude { get; set; }
 
         public double Longitude { get; set; }
+
+        public sealed override string ToString()
+        {
+            return string.Format("{0}, {1}", Latitude, Longitude);
+        }
     }
 }

@@ -33,7 +33,7 @@ namespace EMonolithLib.Maths.Source
                             Math.Cos(DegreeConverter.DegreesToRadians(latitude2)) *
                             Math.Cos(DegreeConverter.DegreesToRadians(longitude1 - longitude2))
                         )
-                    ) * 60 * 1.1515 * 1.609344;// * 1000;
+                    ) * 60 * 1.1515 * 1.609344 * 1000;
         }
 
         public double Calculate(GeodesicCoordinates2D point1, GeodesicCoordinates2D point2)

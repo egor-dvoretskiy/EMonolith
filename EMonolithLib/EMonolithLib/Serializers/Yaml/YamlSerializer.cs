@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using YamlDotNet.Serialization;
 
 namespace EMonolithLib.Serializers.Yaml
@@ -16,8 +11,8 @@ namespace EMonolithLib.Serializers.Yaml
 
         public YamlSerializer()
         {
-            this._deserializer = new DeserializerBuilder().Build();
-            this._serializer = new SerializerBuilder().Build();
+            _deserializer = new DeserializerBuilder().Build();
+            _serializer = new SerializerBuilder().Build();
         }
 
         public T LoadFromFile<T>(string path)
@@ -33,13 +28,13 @@ namespace EMonolithLib.Serializers.Yaml
                 }
 
                 T output = new T();
-                output = this._deserializer.Deserialize<T>(content);
+                output = _deserializer.Deserialize<T>(content);
 
                 return output;
             }
             catch (Exception) { }
 
-            return new T();
+            return default(T);
         }
 
         public T LoadFromFile<T>(string path, T defaultValue)
@@ -47,12 +42,12 @@ namespace EMonolithLib.Serializers.Yaml
         {
             if (!File.Exists(path))
             {
-                this.SaveToFile(defaultValue, path);
+                SaveToFile(defaultValue, path);
 
                 return defaultValue;
             }
 
-            T loadResult = this.LoadFromFile<T>(path);
+            T loadResult = LoadFromFile<T>(path);
 
             return loadResult;
         }
@@ -62,7 +57,7 @@ namespace EMonolithLib.Serializers.Yaml
         {
             try
             {
-                string content = this._serializer.Serialize(box);
+                string content = _serializer.Serialize(box);
                 using (StreamWriter writer = new StreamWriter(path, false, System.Text.Encoding.Default))
                 {
                     writer.WriteLine(content);

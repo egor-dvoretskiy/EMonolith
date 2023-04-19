@@ -1,4 +1,5 @@
 ﻿using CsvHelper;
+using CsvHelper.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -8,6 +9,17 @@ namespace EMonolithLib.Serializers.Csv
 {
     public static class CsvSerializer
     {
+        private static readonly CsvConfiguration csvConfiguration = new CsvConfiguration(CultureInfo.InvariantCulture)
+        {
+            Delimiter = ",",
+            PrepareHeaderForMatch = args => args.Header.ToLower()
+        };
+
+        public static CsvConfiguration CsvConfiguration
+        {
+            get => csvConfiguration;
+        }
+
         public static IEnumerable<T> LoadFromFile<T>(string path) where T : new()
         {
             try
@@ -16,7 +28,7 @@ namespace EMonolithLib.Serializers.Csv
 
                 using (var streamReader = File.OpenText(path))
                 {
-                    using (var csvReader = new CsvReader(streamReader, CultureInfo.CurrentCulture))
+                    using (var csvReader = new CsvReader(streamReader, CsvConfiguration))
                     {
                         var list = csvReader.GetRecords<T>();
                         result = new List<T>();

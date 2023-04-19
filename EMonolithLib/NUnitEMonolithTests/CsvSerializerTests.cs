@@ -22,7 +22,7 @@ namespace NUnitEMonolithTests
         public void Test1()
         {
             var data = CsvSerializer.LoadFromFile<CsvData>("D:\\_workspace_C#\\Misc\\Mac_Addresses.csv");
-
+           
             Assert.Pass();
         }
     }
